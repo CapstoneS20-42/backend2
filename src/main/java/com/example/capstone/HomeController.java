@@ -12,12 +12,12 @@ public class HomeController {
     @Autowired
     User users;
     
-    @GetMapping("/home")
+    @GetMapping("/api/home")
     public String home() {
         return "HOME!";
     }
 
-    @GetMapping("/users")
+    @GetMapping("/api/users")
     public List<String> getAllUsernames() {
         return users.getAllUsers();
 	}
