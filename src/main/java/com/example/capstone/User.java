@@ -14,7 +14,7 @@ public class User {
 
 	public List<String> getAllUsers() {
 		List<String> users = new ArrayList<>();
-		users.addAll(jdbc.queryForList("select firstName from capstonedb.students;", String.class));
+		users.addAll(jdbc.queryForList("SELECT RUID FROM capstonedb.studentData LIMIT 2;", String.class));
 		return users;
 	}
 
