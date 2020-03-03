@@ -13,7 +13,7 @@ public class MyUserDetails implements UserDetails {
 
     private String userName;
     private String password;
-    private boolean active;
+    private int active;
     private List<GrantedAuthority> authorities;
 
     public MyUserDetails(User user) {
@@ -57,6 +57,13 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return active;
+        boolean newActive;
+        if(active == 0){
+            newActive = false;
+        }
+        else
+            newActive = true;
+            
+        return newActive;
     }
 }

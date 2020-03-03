@@ -12,7 +12,10 @@ import javax.persistence.*;
 public class User {
 	
 	private String RUID;
+
+	@Id
 	private String NET_ID;
+	
 	private String NAME_LAST;
 	private String NAME_FIRST;
 	private int CLASS;
@@ -24,9 +27,10 @@ public class User {
 	private String GENDER;
 	private String EMAIL_ADDR;
 	private String Password;
-	private boolean isActive;
+	private int isActive;
 	private String roles;
 
+	/*
 	@Autowired
 	JdbcTemplate jdbc;
 
@@ -35,6 +39,7 @@ public class User {
 		users.addAll(jdbc.queryForList("SELECT RUID FROM capstonedb.studentData LIMIT 2;", String.class));
 		return users;
 	}
+	*/
 
 	public String getRoles() {
 		return roles;
@@ -44,11 +49,11 @@ public class User {
 		this.roles = roles;
 	}
 
-	public boolean isActive() {
+	public int isActive() {
 		return isActive;
 	}
 
-	public void setIsActive(boolean isActive) {
+	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
 
