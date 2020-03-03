@@ -11,6 +11,9 @@ public class HomeController {
 
     @Autowired
     User users;
+
+    @Autowired
+    Register register;
     
     @GetMapping("/api/home")
     public String home() {
@@ -30,6 +33,11 @@ public class HomeController {
     @GetMapping("/api/users")
     public List<String> getAllUsernames() {
         return users.getAllUsers();
+    }
+
+    @GetMapping("/api/register")
+    public Boolean r1() {
+        return register.registerUser();
     }
    
 }
