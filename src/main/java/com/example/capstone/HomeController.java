@@ -14,7 +14,7 @@ public class HomeController {
 
     @Autowired
     Register register;
-    
+
     @GetMapping("/api/home")
     public String home() {
         return ("<h1>Welcome</h1>");
@@ -36,8 +36,13 @@ public class HomeController {
     }
 
     @GetMapping("/api/register")
-    public Boolean r1() {
-        return register.registerUser();
+    public String registerStudent() {
+        return register.registerUser("ez123"); //Get netid from frontend
+    }
+
+    @GetMapping("/api/firstLogin")
+    public String firstLogin() {
+        return register.registerUser("ez123"); //Get netid from frontend
     }
    
 }
