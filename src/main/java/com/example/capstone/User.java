@@ -8,26 +8,56 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "StudentData")
+@Table(name = "new_students")
 public class User {
 	
+	@Column(name="RUID") 
 	private String RUID;
 
 	@Id
+	@Column(name="NET_ID") 
 	private String NET_ID;
-	
+
+	@Column(name="userName")
+	private String userName;
+
+	@Column(name="NAME_LAST") 
 	private String NAME_LAST;
+
+	@Column(name="NAME_FIRST") 
 	private String NAME_FIRST;
-	private int CLASS;
+
+	@Column(name="Class_Year") 
+	private int Class_Year;
+
+	@Column(name="Grad_Mth") 
 	private String Grad_Mth;
+
+	@Column(name="CURR") 
 	private int CURR;
-	private String OPTION;
-	private double CGPA;
-	private double TGPA;
+
+	@Column(name="OPT") 
+	private String OPT;
+
+	@Column(name="CGPA") 
+	private int CGPA;
+
+	@Column(name="TGPA") 
+	private int TGPA;
+
+	@Column(name="GENDER") 
 	private String GENDER;
+
+	@Column(name="EMAIL_ADDR") 
 	private String EMAIL_ADDR;
-	private String Password;
+
+	@Column(name="pass") 
+	private String pass;
+
+	@Column(name="isActive") 
 	private int isActive;
+
+	@Column(name="roles") 
 	private String roles;
 
 	/*
@@ -41,6 +71,13 @@ public class User {
 	}
 	*/
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public String getRoles() {
 		return roles;
 	}
@@ -58,11 +95,11 @@ public class User {
 	}
 
 	public String getPassword() {
-		return Password;
+		return pass;
 	}
 
 	public void setPassword(String password) {
-		this.Password = password;
+		this.pass = password;
 	}
 
 	public String getRUID() {
@@ -98,11 +135,11 @@ public class User {
 	}
 
 	public int getCLASS() {
-		return CLASS;
+		return Class_Year;
 	}
 
 	public void setCLASS(int cLASS) {
-		this.CLASS = cLASS;
+		this.Class_Year = cLASS;
 	}
 
 	public String getGrad_Mth() {
@@ -122,18 +159,18 @@ public class User {
 	}
 
 	public String getOPTION() {
-		return OPTION;
+		return OPT;
 	}
 
 	public void setOPTION(String oPTION) {
-		this.OPTION = oPTION;
+		this.OPT = oPTION;
 	}
 
 	public double getCGPA() {
 		return CGPA;
 	}
 
-	public void setCGPA(double cGPA) {
+	public void setCGPA(int cGPA) {
 		this.CGPA = cGPA;
 	}
 
@@ -141,7 +178,7 @@ public class User {
 		return TGPA;
 	}
 
-	public void setTGPA(double tGPA) {
+	public void setTGPA(int tGPA) {
 		this.TGPA = tGPA;
 	}
 

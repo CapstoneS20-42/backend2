@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @Autowired
-    User users;
+    // @Autowired
+    // User users;
     
     @GetMapping("/api/home")
     public String home() {
         return ("Welcome");
     }
     
-    @GetMapping("/user")
+    @GetMapping("/api/user")
     public String user() {
         return ("Welcome User");
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/api/admin")
     public String admin() {
         return ("Welcome Admin");
     }
