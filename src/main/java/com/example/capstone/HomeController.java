@@ -31,10 +31,10 @@ public class HomeController {
     }
 
     
-    @GetMapping("/api/users")
-    public List<String> getAllUsernames() {
-        return users.getAllUsers();
-    }
+    // @GetMapping("/api/users")
+    // public List<String> getAllUsernames() {
+    //     return users.getAllUsers();
+    // }
 
     @GetMapping("/api/register")
     public String registerStudent() {
