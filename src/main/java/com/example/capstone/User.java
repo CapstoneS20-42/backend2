@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "new_students")
+@Table(name = "student_data")
 public class User {
 	
 	@Column(name="RUID") 
@@ -19,7 +19,7 @@ public class User {
 	private String NET_ID;
 
 	@Column(name="userName")
-	private String userName;
+	private String username;
 
 	@Column(name="NAME_LAST") 
 	private String NAME_LAST;
@@ -66,17 +66,25 @@ public class User {
 
 	public List<String> getAllUsers() {
 		List<String> users = new ArrayList<>();
-		users.addAll(jdbc.queryForList("SELECT RUID FROM capstonedb.studentData LIMIT 2;", String.class));
+		users.addAll(jdbc.queryForList("SELECT RUID FROM capstonedb.student_data LIMIT 2;", String.class));
 		return users;
 	}
 	*/
 
+	public User(String username){
+		this.username = username;
+	}
+
+	public User(String username, String pass) {
+		this.username = username;
+		this.pass = pass;
+	}
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 	public String getRoles() {
 		return roles;
