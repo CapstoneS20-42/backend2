@@ -19,7 +19,7 @@ public class User {
 	private String NET_ID;
 
 	@Column(name="userName")
-	private String userName;
+	private String username;
 
 	@Column(name="NAME_LAST") 
 	private String NAME_LAST;
@@ -71,12 +71,20 @@ public class User {
 	}
 	*/
 
+	public User(String username){
+		this.username = username;
+	}
+
+	public User(String username, String pass) {
+		this.username = username;
+		this.pass = pass;
+	}
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 	public String getRoles() {
 		return roles;
