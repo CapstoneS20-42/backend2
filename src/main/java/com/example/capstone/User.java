@@ -1,85 +1,146 @@
 package com.example.capstone;
 
-import java.util.*;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-
 import javax.persistence.*;
 
-@Entity
-@Table(name = "student_data")
 public class User {
 	
-	@Column(name="RUID") 
-	private String RUID;
+	private String ruid;
 
-	@Id
-	@Column(name="NET_ID") 
-	private String NET_ID;
+	private String netID;
 
-	@Column(name="userName")
 	private String username;
 
-	@Column(name="NAME_LAST") 
-	private String NAME_LAST;
+	private String lastName;
 
-	@Column(name="NAME_FIRST") 
-	private String NAME_FIRST;
+	private String firstName;
 
-	@Column(name="Class_Year") 
-	private int Class_Year;
+	private int classYear;
 
-	@Column(name="Grad_Mth") 
-	private String Grad_Mth;
+	private String GradMonth;
 
-	@Column(name="CURR") 
-	private int CURR;
+	private int curr;
 
-	@Column(name="OPT") 
-	private String OPT;
+	private String option;
 
-	@Column(name="CGPA") 
 	private int CGPA;
 
-	@Column(name="TGPA") 
 	private int TGPA;
 
-	@Column(name="GENDER") 
-	private String GENDER;
+	private String gender;
 
-	@Column(name="EMAIL_ADDR") 
-	private String EMAIL_ADDR;
+	private String emailAddr;
 
-	@Column(name="pass") 
-	private String pass;
+	private String password;
 
-	@Column(name="isActive") 
 	private int isActive;
 
-	@Column(name="roles") 
 	private String roles;
 
 	/*
-	@Autowired
-	JdbcTemplate jdbc;
-
-	public List<String> getAllUsers() {
-		List<String> users = new ArrayList<>();
-		users.addAll(jdbc.queryForList("SELECT RUID FROM capstonedb.student_data LIMIT 2;", String.class));
-		return users;
-	}
-	*/
-
-	public User(String username){
-		this.username = username;
+	 * @Autowired JdbcTemplate jdbc;
+	 * 
+	 * public List<String> getAllUsers() { List<String> users = new ArrayList<>();
+	 * users.addAll(jdbc.
+	 * queryForList("SELECT RUID FROM capstonedb.student_data LIMIT 2;",
+	 * String.class)); return users; }
+	 */
+	
+	public String getnetID() {
+		return netID;
 	}
 
-	public User(String username, String pass) {
-		this.username = username;
-		this.pass = pass;
+	public void setNetID(String NetID) {
+		this.netID = NetID;
 	}
-	public String getUserName() {
+	public String getEmailAddr() {
+		return emailAddr;
+	}
+
+	public void setEmailAddr(String emailAddr) {
+		this.emailAddr = emailAddr;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public int getTGPA() {
+		return TGPA;
+	}
+
+	public void setTGPA(int tGPA) {
+		this.TGPA = tGPA;
+	}
+
+	public int getCGPA() {
+		return CGPA;
+	}
+
+	public void setCGPA(int cGPA) {
+		this.CGPA = cGPA;
+	}
+
+	public String getOption() {
+		return option;
+	}
+
+	public void setOption(String option) {
+		this.option = option;
+	}
+
+	public int getCurr() {
+		return curr;
+	}
+
+	public void setCurr(int curr) {
+		this.curr = curr;
+	}
+
+	public String getGradMonth() {
+		return GradMonth;
+	}
+
+	public void setGradMonth(String gradMonth) {
+		this.GradMonth = gradMonth;
+	}
+
+	public int getClassYear() {
+		return classYear;
+	}
+
+	public void setClassYear(int classYear) {
+		this.classYear = classYear;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getRuid() {
+		return ruid;
+	}
+
+	public void setRuid(String ruid) {
+		this.ruid = ruid;
+	}
+
+	public String getUsername() {
 		return username;
 	}
 
@@ -103,107 +164,17 @@ public class User {
 	}
 
 	public String getPassword() {
-		return pass;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		this.pass = password;
+		this.password = password;
 	}
 
-	public String getRUID() {
-		return RUID;
+	@Override
+	public String toString() {
+		return "NetID is: " + this.getUsername() + " and password is: " + this.getPassword();
 	}
 
-	public void setRUID(String rUID) {
-		this.RUID = rUID;
-	}
-
-	public String getNET_ID() {
-		return NET_ID;
-	}
-
-	public void setNET_ID(String nET_ID) {
-		this.NET_ID = nET_ID;
-	}
-
-	public String getNAME_LAST() {
-		return NAME_LAST;
-	}
-
-	public void setNAME_LAST(String nAME_LAST) {
-		this.NAME_LAST = nAME_LAST;
-	}
-
-	public String getNAME_FIRST() {
-		return NAME_FIRST;
-	}
-
-	public void setNAME_FIRST(String nAME_FIRST) {
-		this.NAME_FIRST = nAME_FIRST;
-	}
-
-	public int getCLASS() {
-		return Class_Year;
-	}
-
-	public void setCLASS(int cLASS) {
-		this.Class_Year = cLASS;
-	}
-
-	public String getGrad_Mth() {
-		return Grad_Mth;
-	}
-
-	public void setGrad_Mth(String grad_Mth) {
-		this.Grad_Mth = grad_Mth;
-	}
-
-	public int getCURR() {
-		return CURR;
-	}
-
-	public void setCURR(int cURR) {
-		this.CURR = cURR;
-	}
-
-	public String getOPTION() {
-		return OPT;
-	}
-
-	public void setOPTION(String oPTION) {
-		this.OPT = oPTION;
-	}
-
-	public double getCGPA() {
-		return CGPA;
-	}
-
-	public void setCGPA(int cGPA) {
-		this.CGPA = cGPA;
-	}
-
-	public double getTGPA() {
-		return TGPA;
-	}
-
-	public void setTGPA(int tGPA) {
-		this.TGPA = tGPA;
-	}
-
-	public String getGENDER() {
-		return GENDER;
-	}
-
-	public void setGENDER(String gENDER) {
-		this.GENDER = gENDER;
-	}
-
-	public String getEMAIL_ADDR() {
-		return EMAIL_ADDR;
-	}
-
-	public void setEMAIL_ADDR(String eMAIL_ADDR) {
-		this.EMAIL_ADDR = eMAIL_ADDR;
-	}
 
 }
